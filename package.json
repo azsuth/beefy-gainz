@@ -1,0 +1,15 @@
+{
+  "name": "beefy-gainz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "status": "./node_modules/meta/bin/meta git status"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "meta": "^1.2.16"
+  }
+}
