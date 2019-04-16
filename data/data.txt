@@ -1,0 +1,36 @@
+// created with dbdiagram.io
+
+Table user {
+  id long [pk]
+}
+
+Table exercise {
+  id long [pk]
+  user_id long [ref: > user.id]
+  name string
+  notes string
+  created date
+}
+
+Table set {
+  id long [pk]
+  exercise_id long [ref: > exercise.id]
+  reps int
+  created date
+}
+
+Table weight {
+  id long [pk]
+  user_id long [ref: > user.id]
+  weight double
+  notes string
+  created date
+}
+
+Table heart {
+  id long [pk]
+  user_id long [ref: > user.id]
+  pulse int
+  systolic int
+  diastolic int
+}
