@@ -1,0 +1,25 @@
+version: '3'
+services:
+  gateway:
+    restart: always
+    build:
+      context: ./gateway
+    volumes:
+      - /app/node_modules
+      - ./gateway:/app
+    ports: 
+      - 3001:3001
+  router:
+    restart: always
+    build:
+      context: ./router
+    ports:
+      - 3050:80
+  client:
+    build:
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - 3000:3000
