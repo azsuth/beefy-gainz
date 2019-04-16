@@ -3,6 +3,8 @@
     "client": "https://github.com/azsuth/beefy-gainz-client.git",
     "config": "https://github.com/azsuth/beefy-gainz-config.git",
     "config-server": "https://github.com/azsuth/beefy-gainz-config-server.git",
-    "exercise": "https://github.com/azsuth/beefy-gainz-exercise.git"
+    "exercise": "https://github.com/azsuth/beefy-gainz-exercise.git",
+    "gateway": "https://github.com/azsuth/beefy-gainz-gateway.git",
+    "router": "https://github.com/azsuth/beefy-gainz-router.git"
   }
 }

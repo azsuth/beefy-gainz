@@ -3,3 +3,5 @@ config
 config-server
 exercise
 .idea
+gateway
+router
