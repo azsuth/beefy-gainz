@@ -1,5 +1,17 @@
 # Beefy Gainz
 
+## Related Repositories
+
+All related repositories are named `beefy-gainz-{service name}`.
+
+[beefy-gainz-client](https://github.com/azsuth/beefy-gainz-client)
+
+[beefy-gainz-gateway](https://github.com/azsuth/beefy-gainz-gateway) 
+
+[beefy-gainz-router](https://github.com/azsuth/beefy-gainz-router) 
+
+[beefy-gainz-exercise](https://github.com/azsuth/beefy-gainz-exercise)
+
 ## Setup
 
 Install `meta` globally.
