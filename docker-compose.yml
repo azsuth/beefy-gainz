@@ -20,8 +20,5 @@ services:
       - /app/node_modules
       - ./client:/app
   exercise:
-    build:
-      context: ./exercise
-      args:
-        - JAR_NAME=exercise-0.0.1-SNAPSHOT.jar
+    image: azsuth/beefy-gainz-exercise:latest
     
