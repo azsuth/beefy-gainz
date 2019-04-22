@@ -4,13 +4,15 @@
 
 All related repositories are named `beefy-gainz-{service name}`.
 
-[beefy-gainz-client](https://github.com/azsuth/beefy-gainz-client)
+[beefy-gainz-client](https://github.com/azsuth/beefy-gainz-client) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-client.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-client)
 
-[beefy-gainz-gateway](https://github.com/azsuth/beefy-gainz-gateway) 
+[beefy-gainz-gateway](https://github.com/azsuth/beefy-gainz-gateway) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-gateway.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-gateway)
 
 [beefy-gainz-router](https://github.com/azsuth/beefy-gainz-router) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-router.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-router)
 
 [beefy-gainz-exercise](https://github.com/azsuth/beefy-gainz-exercise) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-exercise.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-exercise)
+
+[beefy-gainz-config-server](https://github.com/azsuth/beefy-gainz-config-server) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-config-server.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-config-server)
 
 ## Setup
 
