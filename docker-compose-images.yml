@@ -4,27 +4,16 @@ services:
 
   gateway:
     restart: always
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./gateway
-    volumes:
-      - /app/node_modules
-      - ./gateway:/app
+    image: azsuth/beefy-gainz-gateway:latest
     ports: 
       - 3001:3001
 
   router:
     restart: always
-    build:
-      context: ./router
+    image: azsuth/beefy-gainz-router:latest
 
   client:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./client
-    volumes:
-      - /app/node_modules
-      - ./client:/app
+    image: azsuth/beefy-gainz-client:latest
 
   config:
     image: azsuth/beefy-gainz-config:latest
