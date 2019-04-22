@@ -19,6 +19,12 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
+  config:
+    image: azsuth/beefy-gainz-config:latest
+    environment: 
+      - SPRING_PROFILES_ACTIVE=qa
   exercise:
+    restart: always
     image: azsuth/beefy-gainz-exercise:latest
-    
+    environment:
+      - SPRING_PROFILES_ACTIVE=qa
