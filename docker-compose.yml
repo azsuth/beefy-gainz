@@ -15,11 +15,6 @@ services:
     environment:
       - GATEWAY_USER_ID_OVERRIDE=12345
 
-  router:
-    restart: always
-    build:
-      context: ./router
-
   client:
     build:
       dockerfile: Dockerfile.dev
