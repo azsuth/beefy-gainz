@@ -7,21 +7,37 @@ services:
     image: azsuth/beefy-gainz-gateway:latest
     ports: 
       - 3001:3001
+    environment:
+      - GATEWAY_USER_ID_OVERRIDE=12345
 
   router:
     restart: always
     image: azsuth/beefy-gainz-router:latest
 
   client:
+    restart: always
     image: azsuth/beefy-gainz-client:latest
-
-  config:
-    image: azsuth/beefy-gainz-config:latest
-    environment: 
-      - SPRING_PROFILES_ACTIVE=qa
       
   exercise:
     restart: always
     image: azsuth/beefy-gainz-exercise:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=qa
+      # - SPRING_PROFILES_ACTIVE=dev
+      - SERVER_PORT=8080
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://exercise-db:5432/exercise
+      - SPRING_DATASOURCE_USERNAME=exercise_user
+      - SPRING_DATASOURCE_PASSWORD=exercise_temp_password
+      - WORKOUT_DURATION=4
+
+  exercise-db:
+    restart: always
+    image: azsuth/beefy-gainz-db:latest
+    environment:
+      - POSTGRES_PASSWORD=azsuth
+      - POSTGRES_DB=exercise
+  
+  adminer:
+    restart: always
+    image: adminer
+    ports:
+      - 8085:8080

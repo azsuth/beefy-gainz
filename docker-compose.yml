@@ -13,7 +13,7 @@ services:
     ports: 
       - 3001:3001
     environment:
-      - USER_ID_OVERRIDE=12345
+      - GATEWAY_USER_ID_OVERRIDE=12345
 
   router:
     restart: always
@@ -27,15 +27,6 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
-
-  config:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./config-server
-      args:
-        JAR_NAME: config-server-0.0.1-SNAPSHOT.jar
-    environment: 
-      - SPRING_PROFILES_ACTIVE=docker
       
   exercise:
     restart: always
@@ -45,12 +36,17 @@ services:
       args:
         JAR_NAME: exercise-0.0.1-SNAPSHOT.jar
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_PROFILES_ACTIVE=dev
+      - SERVER_PORT=8080
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://exercise-db:5432/exercise
+      - SPRING_DATASOURCE_USERNAME=exercise_user
+      - SPRING_DATASOURCE_PASSWORD=exercise_temp_password
+      - WORKOUT_DURATION=4
 
   exercise-db:
     restart: always
     build:
-      context: ./postgres
+      context: ./db
     environment:
       - POSTGRES_PASSWORD=azsuth
       - POSTGRES_DB=exercise

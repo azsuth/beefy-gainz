@@ -1,9 +1,8 @@
 client
-config
-config-server
 exercise
-.idea
 gateway
 router
-.vscode
 db
+
+.idea
+.vscode
