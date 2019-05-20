@@ -2,6 +2,23 @@ version: '3'
 
 services:
 
+  router:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./router
+    ports: 
+      - 3001:80
+
+  client:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+
   gateway:
     restart: always
     build:
@@ -10,18 +27,10 @@ services:
     volumes:
       - /app/node_modules
       - ./gateway:/app
-    ports: 
-      - 3001:3001
     environment:
       - GATEWAY_USER_ID_OVERRIDE=12345
-
-  client:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./client
-    volumes:
-      - /app/node_modules
-      - ./client:/app
+      - GATEWAY_PORT=3050
+      - GATEWAY_EXERCISE_UPSTREAM=http://exercise:8080
       
   exercise:
     restart: always
@@ -49,5 +58,3 @@ services:
   adminer:
     image: adminer
     restart: always
-    ports:
-      - 8085:8080
