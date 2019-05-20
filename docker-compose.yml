@@ -45,7 +45,7 @@ services:
       - SERVER_PORT=8080
       - SPRING_DATASOURCE_URL=jdbc:postgresql://exercise-db:5432/exercise
       - SPRING_DATASOURCE_USERNAME=exercise_user
-      - SPRING_DATASOURCE_PASSWORD=exercise_temp_password
+      - SPRING_DATASOURCE_PASSWORD=exercise_dev_password
       - WORKOUT_DURATION=4
 
   exercise-db:
