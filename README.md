@@ -10,9 +10,11 @@ All related repositories are named `beefy-gainz-{service name}`.
 
 [beefy-gainz-router](https://github.com/azsuth/beefy-gainz-router) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-router.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-router)
 
+[beefy-gainz-ingress](https://github.com/azsuth/beefy-gainz-ingress) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-ingress.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-ingress)
+
 [beefy-gainz-exercise](https://github.com/azsuth/beefy-gainz-exercise) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-exercise.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-exercise)
 
-[beefy-gainz-config-server](https://github.com/azsuth/beefy-gainz-config-server) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-config-server.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-config-server)
+[beefy-gainz-db](https://github.com/azsuth/beefy-gainz-db) [![Build Status](https://travis-ci.org/azsuth/beefy-gainz-db.svg?branch=master)](https://travis-ci.org/azsuth/beefy-gainz-db)
 
 ## Setup
 
@@ -40,19 +42,28 @@ The client code is hosted at `http://localhost:3001`. The APIs are hosted behind
 
 ### Gateway
 
-Node app that validates a google token ID. Provides simple, unauthenticated passthrough for all base routes. Authenticates routes beginning with `/api`. All traffic is passed to the router.
+Node app that validates a google token ID with `google-auth-library`. Traffic is proxied through to the appropriate service, based on the base path.
 
 ### Router
 
-Nginx reverse proxy server.
+**ONLY IN DEVELOPMENT ENVIRONMENT**. Nginx reverse proxy server that routes traffic either to the gateway or client service.
+
+### Ingress
+
+**ONLY IN PRODUCTION ENVIRONMENT**. Yaml file describing a kubernetes ingress service, ClusterIssuer and Certificate for secure ingress into the beefy gainz application.
 
 ### Client
 
-Client web code.
+**Development:** create-react-app server hosting the development client code.<br>
+**Production:** Static assets served from an nginx container.
 
 ### Exercise
 
-Service providing CRUD operations for Exercises and Sets
+Spring application providing CRUD operations for Exercises and Sets.
+
+### Postgres
+
+A container running postgres. On startup a script creates the table schema and a single user account with SELECT, INSERT, UPDATE, DELETE priviledges.
 
 ## Data
 
